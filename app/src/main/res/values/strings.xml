@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Cinemaks XxX</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register_new_account">Register new Account</string>
+    <string name="title_activity_main">CineMakz XxX</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="title_comming">Coming Soon</string>
+    <string name="history">History</string>
+    <string name="full_name">Full Name</string>
+    <string name="register">register</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nama_film_disini">Nama Film DISINI</string>
+    <string name="search_movie">Search Movie</string>
+    <string name="title_activity_detail">Detail Activity</string>
+    <string name="logout">Logout</string>
+    <string name="about_us">About us</string>
+    <string name="vote_count">Vote Count :</string>
+    <string name="popularity">Popularity :</string>
+    <string name="genre">Genre :</string>
+
+    <string name="banner_home_footer">ca-app-pub-2844742965327534/9185237766</string>
+</resources>

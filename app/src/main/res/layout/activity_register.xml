@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aharoldk.iak_final.RegisterActivity"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/etName"
+        style="@style/matchwrap"
+        android:hint="@string/full_name"
+        android:layout_marginTop="-50dp"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        style="@style/matchwrap"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email_address"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        style="@style/matchwrap"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/password"/>
+
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/matchwrap"
+        android:text="@string/register"/>
+
+</LinearLayout>

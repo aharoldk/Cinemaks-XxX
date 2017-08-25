@@ -1,0 +1,98 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    tools:context="com.aharoldk.iak_final.TrailerMovieFragment"
+    android:background="@color/background">
+
+    <RelativeLayout
+        style="@style/matchmatch">
+
+        <FrameLayout
+            android:id="@+id/youtube_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="218dp"
+            android:layout_weight="0.02">
+        </FrameLayout>
+
+        <ScrollView
+            style="@style/matchwrap"
+            android:layout_below="@+id/youtube_fragment"
+            android:layout_above="@+id/adView">
+
+            <LinearLayout
+                style="@style/matchmatch"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvTagLine"
+                    style="@style/matchwrap"
+                    android:textStyle="italic|bold"
+                    android:textColor="@color/textDetail"
+                    android:text="@string/genre"
+                    android:textSize="22sp"
+                    android:gravity="center_horizontal"
+                    android:padding="15dp"/>
+
+                <TextView
+                    android:id="@+id/tvGenres"
+                    style="@style/matchwrap"
+                    android:textSize="18sp"
+                    android:text="@string/about_us"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/textDetail"
+                    android:padding="10dp"/>
+
+
+                <TextView
+                    android:id="@+id/tvPopularity"
+                    style="@style/matchwrap"
+                    android:textColor="@color/textDetail"
+                    android:text="@string/about_us"
+                    android:textSize="18dp"
+                    android:gravity="center_horizontal"
+                    android:padding="10dp"/>
+
+
+                <TextView
+                    android:id="@+id/tvLink"
+                    style="@style/matchwrap"
+                    android:textSize="18sp"
+                    android:text="@string/about_us"
+                    android:gravity="center_horizontal"
+                    android:textColor="#788aff"
+                    android:padding="10dp"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            style="@style/matchwrap"
+            ads:adSize="BANNER"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            ads:adUnitId="@string/banner_home_footer"/>
+
+    </RelativeLayout>
+
+
+
+
+</FrameLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aharoldk.iak_final.LoginActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:gravity="center_vertical">
+
+    <ImageView
+        style="@style/wrapwrap"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-50dp"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        style="@style/matchwrap"
+        android:textSize="20sp"
+        android:hint="@string/email_address"
+        />
+
+    <EditText
+        android:id="@+id/etPassword"
+        style="@style/matchwrap"
+        android:textSize="20sp"
+        android:hint="@string/password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/matchwrap"
+        android:text="@string/login"/>
+
+    <TextView
+        android:id="@+id/tvRegister"
+        style="@style/matchwrap"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:text="@string/register_new_account"/>
+
+</LinearLayout>

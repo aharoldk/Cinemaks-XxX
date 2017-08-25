@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    style="@style/matchwrap"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        style="@style/matchwrap"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivPoster"
+            style="@style/matchwrap"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/matchwrap"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_height="40dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/nama_film_disini"
+            android:textColor="@color/background"
+            android:background="@color/textPrimary"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

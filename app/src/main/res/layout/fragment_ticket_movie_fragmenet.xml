@@ -1,0 +1,27 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aharoldk.iak_final.TicketMovieFragment">
+
+    <RelativeLayout style="@style/matchmatch">
+
+        <ImageView
+            android:id="@+id/ivBackground"
+            style="@style/matchmatch"
+            android:scaleType="fitXY"
+            android:src="@drawable/poster" />
+
+        <ScrollView style="@style/matchwrap">
+
+            <LinearLayout
+                style="@style/matchwrap"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</FrameLayout>
