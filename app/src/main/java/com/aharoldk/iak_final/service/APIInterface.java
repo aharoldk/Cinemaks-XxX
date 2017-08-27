@@ -1,7 +1,8 @@
 package com.aharoldk.iak_final.service;
 
-import com.aharoldk.iak_final.model.Trailer;
-import com.aharoldk.iak_final.pojo.Home;
+import com.aharoldk.iak_final.pojo.Movie.Home;
+import com.aharoldk.iak_final.pojo.Review.Review;
+import com.aharoldk.iak_final.pojo.Trailer.Trailer;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -10,12 +11,16 @@ import retrofit2.http.Query;
 
 public interface APIInterface {
 
-    @GET("movie/now_playing")
-    Call<Home> getAPINowPlaying(@Query("api_key") String apiKey, @Query("language") String language, @Query("page") String page);
+    @GET("popular")
+    Call<Home> getAPIPopular(@Query("api_key") String apiKey);
 
-    @GET("movie/upcoming")
-    Call<Home> getAPIComingSoon(@Query("api_key") String apiKey, @Query("language") String language, @Query("page") String page);
+    @GET("top_rated")
+    Call<Home> getAPITopRated(@Query("api_key") String apiKey);
 
-    @GET("movie/{id}")
-    Call<Trailer> getAPITrailer(@Path("id") int id, @Query("api_key") String apiKey, @Query("append_to_response") String append_to_response);
+    @GET("{id}/videos")
+    Call<Trailer> getAPITrailer(@Path("id") int id, @Query("api_key") String apiKey, @Query("language") String language);
+
+    @GET("{id}/reviews")
+    Call<Review> getAPIReview(@Path("id") int id, @Query("api_key") String apiKey, @Query("language") String language);
+
 }

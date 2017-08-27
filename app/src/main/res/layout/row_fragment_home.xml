@@ -5,29 +5,21 @@
     android:orientation="vertical"
     style="@style/matchwrap"
     app:cardUseCompatPadding="true"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         style="@style/matchwrap"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
         <ImageView
             android:id="@+id/ivPoster"
-            style="@style/matchwrap"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"/>
-
-        <TextView
-            android:id="@+id/tvTitle"
-            style="@style/matchwrap"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_height="40dp"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/nama_film_disini"
-            android:textColor="@color/background"
-            android:background="@color/textPrimary"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            />
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

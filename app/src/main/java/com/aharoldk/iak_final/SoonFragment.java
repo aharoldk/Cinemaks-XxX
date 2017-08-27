@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.aharoldk.iak_final.adapter.HomeAdapter;
-import com.aharoldk.iak_final.pojo.Home;
-import com.aharoldk.iak_final.pojo.ResultsItem;
+import com.aharoldk.iak_final.pojo.Movie.Home;
+import com.aharoldk.iak_final.pojo.Movie.ResultsItem;
 import com.aharoldk.iak_final.service.APIClient;
 import com.aharoldk.iak_final.service.APIInterface;
 
@@ -27,8 +27,6 @@ public class SoonFragment extends Fragment {
     private static final String TAG = "SoonFragment";
 
     private static final String API_KEY = "3ee47da55c8dae070eb764306712efc3";
-    private static final String LANGUAGE = "en-US";
-    private static final String PAGE = "1";
 
     private RecyclerView recyclerView;
 
@@ -45,7 +43,7 @@ public class SoonFragment extends Fragment {
 
         APIInterface apiInterface = APIClient.getApiClient().create(APIInterface.class);
 
-        Call<Home> call = apiInterface.getAPIComingSoon(API_KEY, LANGUAGE, PAGE);
+        Call<Home> call = apiInterface.getAPITopRated(API_KEY);
 
         call.enqueue(new Callback<Home>() {
             @Override
@@ -68,7 +66,6 @@ public class SoonFragment extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), "Error "+code+" : Unexpected Response", Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override

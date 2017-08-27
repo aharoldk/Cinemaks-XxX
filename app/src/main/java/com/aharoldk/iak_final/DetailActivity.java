@@ -13,7 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.aharoldk.iak_final.pojo.ResultsItem;
+import com.aharoldk.iak_final.pojo.Movie.ResultsItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -194,8 +194,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             switch(position) {
                 case 0: return DetailMovieFragment.newInstance(json);
                 case 1: return TrailerMovieFragment.newInstance(json);
-                case 2: return PlayingFragment.newInstance();
-                case 3: return TicketMovieFragment.newInstance(json);
+                case 3: return DetailMovieFragment.newInstance(json);
 
                 default: return DetailMovieFragment.newInstance(json);
             }
@@ -203,7 +202,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         @Override
         public int getCount() {
-            return 4;
+            return 3;
         }
 
         @Override
@@ -214,9 +213,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 case 1:
                     return "Trailer";
                 case 2:
-                    return "Playing";
-                case 3:
-                    return "Ticket";
+                    return "Review";
             }
             return null;
         }

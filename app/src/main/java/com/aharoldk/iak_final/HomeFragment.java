@@ -1,6 +1,5 @@
 package com.aharoldk.iak_final;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.aharoldk.iak_final.adapter.HomeAdapter;
-import com.aharoldk.iak_final.pojo.Home;
-import com.aharoldk.iak_final.pojo.ResultsItem;
+import com.aharoldk.iak_final.pojo.Movie.Home;
+import com.aharoldk.iak_final.pojo.Movie.ResultsItem;
 import com.aharoldk.iak_final.service.APIClient;
 import com.aharoldk.iak_final.service.APIInterface;
 import com.aharoldk.iak_final.service.DetailClickListener;
@@ -30,8 +29,6 @@ public class HomeFragment extends Fragment implements DetailClickListener {
     private static final String TAG = "HomeFragment";
 
     private static final String API_KEY = "3ee47da55c8dae070eb764306712efc3";
-    private static final String LANGUAGE = "en-US";
-    private static final String PAGE = "1";
 
     private HomeAdapter adapter;
     private List<ResultsItem> list = new ArrayList<>();
@@ -53,13 +50,14 @@ public class HomeFragment extends Fragment implements DetailClickListener {
         RecyclerView recyclerView = rootview.findViewById(R.id.rvHome);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(adapter);
 
         adapter.setItemClickListener(this);
 
         APIInterface apiInterface = APIClient.getApiClient().create(APIInterface.class);
 
-        Call<Home> call = apiInterface.getAPINowPlaying(API_KEY, LANGUAGE, PAGE);
+        Call<Home> call = apiInterface.getAPIPopular(API_KEY);
 
         call.enqueue(new Callback<Home>() {
             @Override

@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.aharoldk.iak_final.pojo.ResultsItem;
-import com.bumptech.glide.Glide;
+import com.aharoldk.iak_final.pojo.Movie.ResultsItem;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.net.URL;
@@ -68,7 +68,7 @@ public class DetailMovieFragment extends Fragment {
         StrictMode.setThreadPolicy(policy);
 
         try {
-            URL url_value = new URL("https://image.tmdb.org/t/p/w500"+resultsItem.getPosterPath());
+            URL url_value = new URL("https://image.tmdb.org/t/p/w92"+resultsItem.getPosterPath());
             if (url_value != null) {
                 mIcon1 = BitmapFactory.decodeStream(url_value.openConnection().getInputStream());
             }
@@ -77,13 +77,13 @@ public class DetailMovieFragment extends Fragment {
         }
 
         Blurry.with(getContext())
-                .radius(6)
-                .sampling(6)
+                .radius(4)
+                .sampling(4)
                 .from(mIcon1)
                 .into(ivBackground);
 
-        Glide.with(getContext())
-                .load("https://image.tmdb.org/t/p/w500"+resultsItem.getPosterPath())
+        Picasso.with(getContext())
+                .load("https://image.tmdb.org/t/p/w342"+resultsItem.getPosterPath())
                 .into(ivPoster);
 
         tvTitle.setText(""+resultsItem.getTitle());

@@ -5,8 +5,8 @@
     <string name="login">Login</string>
     <string name="register_new_account">Register new Account</string>
     <string name="title_activity_main">CineMakz XxX</string>
-    <string name="dashboard">Dashboard</string>
-    <string name="title_comming">Coming Soon</string>
+    <string name="toprated">Top Rated</string>
+    <string name="popular">Popular</string>
     <string name="history">History</string>
     <string name="full_name">Full Name</string>
     <string name="register">register</string>
