@@ -77,8 +77,8 @@ public class DetailMovieFragment extends Fragment {
         }
 
         Blurry.with(getContext())
-                .radius(4)
-                .sampling(4)
+                .radius(1)
+                .sampling(1)
                 .from(mIcon1)
                 .into(ivBackground);
 

@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.aharoldk.iak_final.R;
 import com.aharoldk.iak_final.pojo.Movie.ResultsItem;
 import com.aharoldk.iak_final.service.DetailClickListener;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -19,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
 
-    private List<ResultsItem> list;
+    public List<ResultsItem> list;
     private DetailClickListener detailClickListener;
 
     public HomeAdapter(List<ResultsItem> list) {
@@ -36,8 +39,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
     @Override
     public void onBindViewHolder(HomeViewHolder holder, final int position) {
-        holder.bind(list.get(position));
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.bind(list.get(position), list);
+        holder.ivPoster.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (detailClickListener != null) {
@@ -63,21 +66,37 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
     }
 
     public static class HomeViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.ivPoster)
-        ImageView ivPoster;
+        @BindView(R.id.ivPoster) ImageView ivPoster;
+        @BindView(R.id.progressBar) ProgressBar progressBar;
+        @BindView(R.id.llCardView) LinearLayout linearLayout;
 
         public HomeViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
         }
 
-        private void bind(final ResultsItem resultsItem) {
+        private void bind(final ResultsItem resultsItem, final List<ResultsItem> list) {
+            progressBar.setVisibility(View.VISIBLE);
+            linearLayout.setVisibility(View.GONE);
 
             Picasso.with(itemView.getContext())
-                    .load("https://image.tmdb.org/t/p/w500"+resultsItem.getPosterPath())
+                    .load("https://image.tmdb.org/t/p/w342"+resultsItem.getPosterPath())
                     .resize(185, 278)
                     .centerCrop()
-                    .into(ivPoster);
+                    .into(ivPoster, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            progressBar.setVisibility(View.GONE);
+                            linearLayout.setVisibility(View.VISIBLE);
+
+                        }
+
+                        @Override
+                        public void onError() {
+
+                        }
+                    });
         }
 
     }

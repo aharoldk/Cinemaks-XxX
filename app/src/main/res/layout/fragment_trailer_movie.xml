@@ -16,20 +16,21 @@
             android:layout_weight="0.02">
         </FrameLayout>
 
-        <ScrollView
-            style="@style/matchwrap"
-            android:layout_below="@+id/youtube_fragment"
+
+        <RelativeLayout
+            style="@style/matchmatch"
+            android:layout_marginBottom="15dp"
             android:layout_above="@+id/adView"
-            android:layout_marginBottom="15dp">
+            android:layout_below="@+id/youtube_fragment">
 
-            <RelativeLayout
-                style="@style/matchmatch">
+            <ImageView
+                android:id="@+id/ivBackground"
+                style="@style/matchmatch"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image1"/>
 
-                <ImageView
-                    android:id="@+id/ivBackground"
-                    style="@style/matchmatch"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/image1"/>
+            <ScrollView
+                style="@style/matchwrap">
 
                 <LinearLayout
                     style="@style/matchmatch"
@@ -64,8 +65,8 @@
                         android:background="#c0c0c0" />
 
                 </LinearLayout>
-            </RelativeLayout>
         </ScrollView>
+        </RelativeLayout>
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"

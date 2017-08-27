@@ -91,8 +91,8 @@ public class TrailerMovieFragment extends Fragment {
         }
 
         Blurry.with(getContext())
-                .radius(4)
-                .sampling(4)
+                .radius(1)
+                .sampling(1)
                 .from(mIcon1)
                 .into(ivBackground);
     }
@@ -197,34 +197,6 @@ public class TrailerMovieFragment extends Fragment {
     private void dataThere(Response<Trailer> response) {
         List<com.aharoldk.iak_final.pojo.Trailer.ResultsItem> list = response.body().getResults();
         video_id = list.get(0).getKey();
-
-        /*StringBuilder strBuilder = new StringBuilder();
-        strBuilder.append("Genre : ");
-        for (int i = 0; i < listGenres.size(); i++) {
-            strBuilder.append(listGenres.get(i).getName());
-
-            if(i+1 == listGenres.size()){
-                strBuilder.append(".");
-            } else {
-                strBuilder.append(", ");
-            }
-        }
-
-        String sGenres = strBuilder.toString();
-
-        tvTagLine.setText(""+ listTrailer.getTagline());
-        tvPopularity.setText("Popularity : "+ String.format("%.2f", listTrailer.getPopularity())+" | Vote Count : "+ listTrailer.getVoteCount());
-        tvGenres.setText(sGenres);
-        tvLink.setText(""+ listTrailer.getHomepage());
-
-        tvLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri uri = Uri.parse(""+ listTrailer.getHomepage()); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });*/
     }
 
     private void youtubeFragment() {
@@ -237,8 +209,8 @@ public class TrailerMovieFragment extends Fragment {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
-                    player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
                     player.pause();
+                    player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
                     player.loadVideo(video_id);
                 }
             }

@@ -33,7 +33,8 @@
             android:theme="@style/reloTheme" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"/>
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"

@@ -194,7 +194,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             switch(position) {
                 case 0: return DetailMovieFragment.newInstance(json);
                 case 1: return TrailerMovieFragment.newInstance(json);
-                case 3: return DetailMovieFragment.newInstance(json);
 
                 default: return DetailMovieFragment.newInstance(json);
             }
@@ -202,7 +201,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         @Override
         public int getCount() {
-            return 3;
+            return 2;
         }
 
         @Override
@@ -212,8 +211,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     return "Detail";
                 case 1:
                     return "Trailer";
-                case 2:
-                    return "Review";
             }
             return null;
         }
