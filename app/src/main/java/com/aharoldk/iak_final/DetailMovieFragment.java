@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.aharoldk.iak_final.pojo.Movie.ResultsItem;
@@ -29,7 +30,7 @@ public class DetailMovieFragment extends Fragment {
     private TextView tvTitle;
     private TextView tvDate;
     private TextView tvLanguage;
-    private TextView tvRate;
+    private RatingBar rbRate;
     private TextView tvOverview;
 
     public static DetailMovieFragment newInstance(String text) {
@@ -52,7 +53,7 @@ public class DetailMovieFragment extends Fragment {
         tvTitle = rootview.findViewById(R.id.tvTitle);
         tvDate = rootview.findViewById(R.id.tvDate);
         tvLanguage = rootview.findViewById(R.id.tvLanguange);
-        tvRate = rootview.findViewById(R.id.tvRate);
+        rbRate = rootview.findViewById(R.id.ratingBar);
         tvOverview = rootview.findViewById(R.id.tvOverview);
 
         declarateContent(resultsItem);
@@ -87,9 +88,9 @@ public class DetailMovieFragment extends Fragment {
                 .into(ivPoster);
 
         tvTitle.setText(""+resultsItem.getTitle());
-        tvDate.setText(getdate(resultsItem.getReleaseDate())+"  |  ");
-        tvLanguage.setText(""+resultsItem.getOriginalLanguage());
-        tvRate.setText("  |  "+resultsItem.getVoteAverage()+"/10");
+        tvDate.setText(" "+getdate(resultsItem.getReleaseDate())+"  |  ");
+        tvLanguage.setText(" "+resultsItem.getOriginalLanguage());
+        rbRate.setRating(Float.parseFloat(""+resultsItem.getVoteAverage()));
         tvOverview.setText(""+resultsItem.getOverview());
     }
 

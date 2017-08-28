@@ -25,6 +25,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,10 +42,13 @@ public class TrailerMovieFragment extends Fragment {
     private static final String API_KEY_MOVIE = "3ee47da55c8dae070eb764306712efc3";
     private static final String LANGUANGE = "en-US";
 
+    private ExpandableTextView expandableTextView;
     private ImageView ivBackground;
     private TextView tvReview;
 
     private String video_id;
+
+    private Boolean fullScreen = false;
 
 
     public static TrailerMovieFragment newInstance(String text) {
@@ -59,8 +63,8 @@ public class TrailerMovieFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_trailer_movie, container, false);
 
+        expandableTextView = rootview.findViewById(R.id.expand_text_view);
         ivBackground = rootview.findViewById(R.id.ivBackground);
-        tvReview = rootview.findViewById(R.id.tvReview);
 
         String jsonString = getArguments().getString("json");
         ResultsItem resultsItem = new ResultsItem().fromJson(jsonString);
@@ -148,14 +152,14 @@ public class TrailerMovieFragment extends Fragment {
         StringBuilder strBuilder = new StringBuilder();
 
         for (int i = 0; i < list.size(); i++) {
-            strBuilder.append("Author : "+list.get(i).getAuthor()+"\n");
-            strBuilder.append("Content : "+list.get(i).getContent()+"\n\n");
+            strBuilder.append("Author : ").append(list.get(i).getAuthor()).append("\n");
+            strBuilder.append("Content : ").append(list.get(i).getContent()).append("\n\n");
 
         }
 
         String sReview = strBuilder.toString();
 
-        tvReview.setText(sReview);
+        expandableTextView.setText(sReview);
     }
 
     private void apiMovie(ResultsItem resultsItem) {
@@ -210,18 +214,19 @@ public class TrailerMovieFragment extends Fragment {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
                     player.pause();
+                    player.setFullscreen(false);
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                    player.loadVideo(video_id);
+                    player.cueVideo(video_id);
+
                 }
             }
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
-                // YouTube error
                 String errorMessage = error.toString();
-                Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
                 Log.d("errorMessage:", errorMessage);
             }
         });
     }
+
 }

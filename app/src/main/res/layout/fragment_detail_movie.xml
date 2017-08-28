@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aharoldk.iak_final.DetailMovieFragment">
-
-    <RelativeLayout style="@style/matchmatch">
+    <RelativeLayout
+        style="@style/matchmatch">
 
         <ImageView
             android:id="@+id/ivBackground"
@@ -13,8 +13,9 @@
             android:scaleType="fitXY"
             android:src="@drawable/poster" />
 
-        <ScrollView style="@style/matchwrap">
-
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <LinearLayout
                 style="@style/matchwrap"
                 android:orientation="vertical"
@@ -49,6 +50,17 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
+                        <RatingBar
+                            android:id="@+id/ratingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="10"
+                            android:stepSize="0.5"
+                            android:rating="3"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:progressTint="@color/colorAccent"
+                            style="?android:attr/ratingBarStyleSmall"/>
+
                         <LinearLayout
                             android:layout_width="300dp"
                             android:layout_height="wrap_content">
@@ -56,27 +68,25 @@
                             <LinearLayout
                                 style="@style/matchwrap"
                                 android:gravity="center_horizontal">
-
+                                <ImageView
+                                    style="@style/wrapwrap"
+                                    android:src="@drawable/ic_date_range_black_24px"/>
                                 <TextView
                                     android:id="@+id/tvDate"
                                     style="@style/wrapwrap"
                                     android:text=" Date | "
                                     android:textColor="@color/textDetail" />
-
+                                <ImageView
+                                    style="@style/wrapwrap"
+                                    android:src="@drawable/ic_language_black_24dp"/>
                                 <TextView
                                     android:id="@+id/tvLanguange"
                                     style="@style/wrapwrap"
-                                    android:text="Languange | "
+                                    android:text=" Languange"
                                     android:textColor="@color/textDetail"
                                     android:textAllCaps="true"/>
 
-                                <TextView
-                                    android:id="@+id/tvRate"
-                                    style="@style/wrapwrap"
-                                    android:text="Rate "
-                                    android:textColor="@color/textDetail" />
                             </LinearLayout>
-
                         </LinearLayout>
 
                     </LinearLayout>
@@ -109,8 +119,8 @@
 
                 </LinearLayout>
             </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
 
-        </ScrollView>
     </RelativeLayout>
 
 </FrameLayout>

@@ -23,9 +23,9 @@ public class TheaterFragment extends Fragment {
         View rootview = inflater.inflate(R.layout.fragment_playing, container, false);
 
         mWebView = rootview.findViewById(R.id.wvCinema);
-
         mWebView.clearCache(true);
-        mWebView.clearHistory();
+        mWebView.clearView();
+        mWebView.reload();
         mWebView.setHorizontalScrollBarEnabled(false);
 
         mWebView.setWebViewClient(new WebViewClient());
