@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aharoldk.iak_final.PlayingFragment">
+    tools:context="com.aharoldk.iak_final.TheaterFragment">
 
     <WebView
         android:id="@+id/wvCinema"

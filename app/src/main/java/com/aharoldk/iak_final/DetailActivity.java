@@ -3,6 +3,8 @@ package com.aharoldk.iak_final;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -29,6 +31,7 @@ import java.util.Date;
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String KEY_EXTRA_NEWS = "movies";
+    private CoordinatorLayout main_content;
     private ResultsItem resultsItem;
     private ImageView ivShare;
     private ImageView ivFavourite;
@@ -39,6 +42,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     private FirebaseAuth mAuth;
     private DatabaseReference dfLike;
+
+    private Snackbar snackBar;
+
+    public DetailActivity() {
+    }
 
     public static void start(Context context, String newsJson){
         Intent intent = new Intent(context, DetailActivity.class);
@@ -92,6 +100,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         ResultsItem resultsItem = new ResultsItem().fromJson(newsJson);
         getSupportActionBar().setTitle(""+resultsItem.getTitle());
 
+        main_content = (CoordinatorLayout) findViewById(R.id.main_content);
+
         ivFavourite = (ImageView) findViewById(R.id.ivFavourite);
         ivShare = (ImageView) findViewById(R.id.ivShare);
 
@@ -124,6 +134,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 dfLike.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+
                         if(dataSnapshot.child(mAuth.getCurrentUser().getUid()).hasChild(""+resultsItem.getId())) {
                             dfLike.child(mAuth.getCurrentUser().getUid())
                                     .child(idDetail)
@@ -132,6 +143,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                             ivFavourite.setImageResource(R.drawable.ic_favorite_black_24px);
 
                             mLike = false;
+                            Snackbar.make(main_content, "Remove from Favourite", Snackbar.LENGTH_LONG)
+                                    .show();
 
                         } else {
                             dfLike.child(mAuth.getCurrentUser().getUid())
@@ -141,6 +154,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                             ivFavourite.setImageResource(R.drawable.ic_favorite_red_24px);
 
                             mLike = false;
+
+                            Snackbar.make(main_content, "Add New Favourite", Snackbar.LENGTH_LONG)
+                                    .show();
 
                         }
                     }

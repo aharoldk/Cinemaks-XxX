@@ -30,12 +30,13 @@ public class HomeFragment extends Fragment implements DetailClickListener {
 
     private static final String API_KEY = "3ee47da55c8dae070eb764306712efc3";
 
+    private View rootview;
     private HomeAdapter adapter;
     private List<ResultsItem> list = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.fragment_home, container, false);
+        rootview = inflater.inflate(R.layout.fragment_home, container, false);
         rootview.setTag(TAG);
 
         recyclerDeclarate(rootview);
