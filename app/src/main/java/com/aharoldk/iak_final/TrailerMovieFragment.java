@@ -73,7 +73,6 @@ public class TrailerMovieFragment extends Fragment {
 
         apiMovie(resultsItem);
         apiReview(resultsItem);
-        youtubeFragment();
         adMethod(rootview);
 
         return rootview;
@@ -200,7 +199,15 @@ public class TrailerMovieFragment extends Fragment {
 
     private void dataThere(Response<Trailer> response) {
         List<com.aharoldk.iak_final.pojo.Trailer.ResultsItem> list = response.body().getResults();
-        video_id = list.get(0).getKey();
+
+        if(list.isEmpty()){
+            video_id = "notfound";
+        } else {
+            video_id = list.get(0).getKey();
+        }
+
+        youtubeFragment();
+
     }
 
     private void youtubeFragment() {
@@ -216,7 +223,7 @@ public class TrailerMovieFragment extends Fragment {
                     player.pause();
                     player.setFullscreen(false);
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                    player.cueVideo(video_id);
+                    player.cueVideo(TrailerMovieFragment.this.video_id);
 
                 }
             }
