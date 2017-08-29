@@ -1,37 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aharoldk.iak_final.RegisterActivity"
-    android:orientation="vertical"
-    android:gravity="center_vertical"
-    android:padding="10dp">
+    android:background="@color/background">
 
-    <EditText
-        android:id="@+id/etName"
+    <ImageView
         style="@style/matchwrap"
-        android:hint="@string/full_name"
-        android:layout_marginTop="-50dp"/>
+        android:src="@drawable/login"
+        android:scaleType="centerCrop"
+        android:clickable="false"
+        android:layout_alignParentBottom="true"/>
 
-    <EditText
-        android:id="@+id/etEmail"
-        style="@style/matchwrap"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/email_address"/>
+    <LinearLayout
+        style="@style/matchmatch"
+        android:layout_marginTop="-50dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center_vertical">
+        <TextView
+             style="@style/matchwrap"
+            android:text="Register"
+            android:textColor="@color/textDetail"
+            android:layout_marginBottom="5dp"/>
+        <EditText
+            android:id="@+id/etName"
+            style="@style/matchwrap"
+            android:hint="@string/full_name"
+            android:textSize="20sp"
+            android:textColor="@color/background"
+            android:textColorHint="@color/background"
+            android:background="@drawable/edittext"
+            android:drawableRight="@drawable/person"
+            android:padding="10dp"
+            />
 
-    <EditText
-        android:id="@+id/etPassword"
-        style="@style/matchwrap"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/password"/>
+        <EditText
+            android:id="@+id/etEmail"
+            style="@style/matchwrap"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email_address"
+            android:textSize="20sp"
+            android:textColor="@color/background"
+            android:textColorHint="@color/background"
+            android:background="@drawable/edittext"
+            android:drawableRight="@drawable/email"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
 
-    <Button
-        android:id="@+id/btnRegister"
-        style="@style/matchwrap"
-        android:text="@string/register"/>
+        <EditText
+            android:id="@+id/etPassword"
+            style="@style/matchwrap"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/background"
+            android:textColorHint="@color/background"
+            android:background="@drawable/edittext"
+            android:drawableRight="@drawable/lock"
+            android:inputType="textPassword"
+            android:hint="@string/password"
+            android:layout_marginBottom="20dp"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnRegister"
+            style="@style/matchwrap"
+            android:text="@string/register"
+
+            android:textColor="@color/background"
+            android:background="@drawable/button"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

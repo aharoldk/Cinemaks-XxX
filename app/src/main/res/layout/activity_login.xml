@@ -1,46 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aharoldk.iak_final.LoginActivity"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:gravity="center_vertical">
+    android:background="@color/background">
 
     <ImageView
-        style="@style/wrapwrap"
+        style="@style/matchwrap"
+        android:src="@drawable/login"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-50dp"
-        android:layout_marginBottom="10dp"/>
+        android:clickable="false"
+        android:layout_alignParentBottom="true"/>
 
-    <EditText
-        android:id="@+id/etEmail"
-        style="@style/matchwrap"
-        android:textSize="20sp"
-        android:hint="@string/email_address"
-        />
+    <LinearLayout
+        style="@style/matchmatch"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_marginTop="-50dp">
 
-    <EditText
-        android:id="@+id/etPassword"
-        style="@style/matchwrap"
-        android:textSize="20sp"
-        android:hint="@string/password"
-        android:inputType="textPassword"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"
+            android:clickable="false"
+            android:layout_gravity="center_horizontal"/>
 
-    <Button
-        android:id="@+id/btnLogin"
-        style="@style/matchwrap"
-        android:text="@string/login"/>
+        <TextView
+            style="@style/matchwrap"
+            android:text="Login"
+            android:textColor="@color/textDetail"
+            android:layout_marginBottom="5dp"/>
+        <EditText
+            android:id="@+id/etEmail"
+            style="@style/matchwrap"
+            android:padding="10dp"
+            android:textColor="@color/background"
+            android:textColorHint="@color/background"
+            android:background="@drawable/edittext"
+            android:drawableRight="@drawable/email"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/email_address"
+            />
 
-    <TextView
-        android:id="@+id/tvRegister"
-        style="@style/matchwrap"
-        android:gravity="center"
-        android:paddingTop="20dp"
-        android:text="@string/register_new_account"/>
+        <EditText
+            android:id="@+id/etPassword"
+            style="@style/matchwrap"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:textColor="@color/background"
+            android:textColorHint="@color/background"
+            android:background="@drawable/edittext"
+            android:drawableRight="@drawable/lock"
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/matchwrap"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/background"
+            android:background="@drawable/button"
+            android:text="@string/login"/>
+
+        <TextView
+            android:id="@+id/tvRegister"
+            style="@style/matchwrap"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:textColor="@color/textDetail"
+            android:text="@string/register_new_account"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

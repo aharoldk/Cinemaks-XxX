@@ -8,7 +8,7 @@
     <string name="toprated">Top Rated</string>
     <string name="popular">Popular</string>
     <string name="history">Favourite</string>
-    <string name="full_name">Full Name</string>
+    <string name="full_name">   Full Name</string>
     <string name="register">register</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
