@@ -31,6 +31,7 @@ public class HomeFragment extends Fragment implements DetailClickListener {
     private static final String API_KEY = "3ee47da55c8dae070eb764306712efc3";
 
     private HomeAdapter adapter;
+
     private List<ResultsItem> list = new ArrayList<>();
 
     @Override

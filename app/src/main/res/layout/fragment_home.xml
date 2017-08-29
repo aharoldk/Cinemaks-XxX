@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     tools:context="com.aharoldk.iak_final.HomeFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvHome"
-        style="@style/matchwrap">
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvHome"
+            style="@style/matchwrap">
+        </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>

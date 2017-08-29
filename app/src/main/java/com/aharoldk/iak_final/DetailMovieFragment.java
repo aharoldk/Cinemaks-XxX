@@ -90,7 +90,7 @@ public class DetailMovieFragment extends Fragment {
         tvTitle.setText(""+resultsItem.getTitle());
         tvDate.setText(" "+getdate(resultsItem.getReleaseDate())+"  |  ");
         tvLanguage.setText(" "+resultsItem.getOriginalLanguage());
-        rbRate.setRating(Float.parseFloat(""+resultsItem.getVoteAverage()));
+        rbRate.setRating(Float.parseFloat(""+(resultsItem.getVoteAverage() / 2)));
         tvOverview.setText(""+resultsItem.getOverview());
     }
 

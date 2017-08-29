@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,13 +18,15 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private FragmentManager manager = getSupportFragmentManager();
     private FragmentTransaction transaction = manager.beginTransaction();
 
     private boolean doubleBackToExitPressedOnce = false;
 
     private FirebaseAuth firebaseAuth;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -59,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        swipeRefreshLayout.setColorSchemeResources(
+                R.color.textPrimary,
+                R.color.colorAccent);
+
+        swipeRefreshLayout.setOnRefreshListener(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -71,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
         firebaseAuth = FirebaseAuth.getInstance();
+
     }
 
     @Override
@@ -86,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_logout:
                 firebaseAuth.signOut();
+                getWindow().setExitTransition(new Explode());
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;
 
@@ -99,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
+            getWindow().setExitTransition(new Explode());
             finish();
         }
 
@@ -113,4 +128,23 @@ public class MainActivity extends AppCompatActivity {
         }, 3000);
 
     }
+
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setEnabled(false);
+
+        Fragment frg = getSupportFragmentManager().findFragmentById(R.id.content);
+        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.detach(frg);
+        ft.attach(frg);
+        ft.commit();
+
+        onLoaded();
+    }
+
+    private void onLoaded() {
+        swipeRefreshLayout.setEnabled(true);
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
 }

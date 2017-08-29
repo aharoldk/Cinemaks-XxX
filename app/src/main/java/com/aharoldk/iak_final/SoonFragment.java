@@ -3,6 +3,7 @@ package com.aharoldk.iak_final;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,6 +32,8 @@ public class SoonFragment extends Fragment implements DetailClickListener {
     private static final String API_KEY = "3ee47da55c8dae070eb764306712efc3";
 
     private HomeAdapter adapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
     private List<ResultsItem> list = new ArrayList<>();
 
     @Override
