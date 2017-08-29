@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.aharoldk.iak_final.pojo.Movie.ResultsItem;
 import com.google.firebase.auth.FirebaseAuth;
@@ -80,7 +81,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Toast.makeText(DetailActivity.this, ""+databaseError, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -130,6 +131,12 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             if(mLike) {
                 final String idDetail = String.valueOf(resultsItem.getId());
                 final String titleDetail = resultsItem.getTitle();
+                final String posterImage = resultsItem.getPosterPath();
+                final String backgroundPath = resultsItem.getBackdropPath();
+                final String date = resultsItem.getReleaseDate();
+                final Double rate = resultsItem.getVoteAverage();
+                final String language = resultsItem.getOriginalLanguage();
+                final String overview = resultsItem.getOverview();
 
                 dfLike.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -149,7 +156,43 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                         } else {
                             dfLike.child(mAuth.getCurrentUser().getUid())
                                     .child(idDetail)
+                                    .child("idDetail")
+                                    .setValue(idDetail);
+
+                            dfLike.child(mAuth.getCurrentUser().getUid())
+                                    .child(idDetail)
+                                    .child("titleDetail")
                                     .setValue(titleDetail);
+
+                            dfLike.child(mAuth.getCurrentUser().getUid())
+                                    .child(idDetail)
+                                    .child("posterImage")
+                                    .setValue(posterImage);
+
+                            dfLike.child(mAuth.getCurrentUser().getUid())
+                                    .child(idDetail)
+                                    .child("backGroundPath")
+                                    .setValue(backgroundPath);
+
+                            dfLike.child(mAuth.getCurrentUser().getUid())
+                                    .child(idDetail)
+                                    .child("date")
+                                    .setValue(date);
+
+                            dfLike.child(mAuth.getCurrentUser().getUid())
+                                    .child(idDetail)
+                                    .child("rate")
+                                    .setValue(rate);
+
+                            dfLike.child(mAuth.getCurrentUser().getUid())
+                                    .child(idDetail)
+                                    .child("language")
+                                    .setValue(language);
+
+                            dfLike.child(mAuth.getCurrentUser().getUid())
+                                    .child(idDetail)
+                                    .child("overview")
+                                    .setValue(overview);
 
                             ivFavourite.setImageResource(R.drawable.ic_favorite_red_24px);
 

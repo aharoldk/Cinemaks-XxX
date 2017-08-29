@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     return true;
 
                 case R.id.navigation_notifications:
+                    transaction = manager.beginTransaction();
+                    transaction.replace(R.id.content, new FavouriteFragment(), "FavouriteFragment");
+                    transaction.commit();
                     return true;
             }
             return false;

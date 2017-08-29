@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/background">
+
+    <ScrollView
+        style="@style/matchwrap">
+        <LinearLayout
+            android:orientation="vertical"
+            style="@style/matchwrap">
+            <ImageView
+                android:id="@+id/ivPoster"
+                android:layout_width="185dp"
+                android:layout_height="275dp"
+                android:src="@drawable/poster"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/matchwrap"
+                android:text="Title Disini"
+                android:gravity="center_horizontal"
+                android:textColor="@color/textDetail"
+                android:textSize="20sp"/>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="0.5"
+                android:rating="3"
+                android:backgroundTint="@color/colorPrimary"
+                android:progressTint="@color/colorAccent"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/tvOverview"
+                style="@style/matchwrap"
+                android:padding="10dp"
+                android:text="Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope."
+                android:textColor="@color/textDetail"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -42,6 +42,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.ms-square:expandableTextView:0.1.4'
+    compile 'com.firebaseui:firebase-ui-database:1.0.1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

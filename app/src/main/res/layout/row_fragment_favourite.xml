@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    style="@style/matchwrap"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp">
+        <ImageView
+            android:id="@+id/ivBackground"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image1"
+            />
+        <LinearLayout
+            android:id="@+id/llCardView"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:orientation="vertical"
+            android:gravity="right">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    style="@style/matchwrap"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="bottom"
+                    android:text="Annabelle CREATION"
+                    android:textColor="@color/textDetail"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/colorPrimary"
+                    android:background="@drawable/rectangle"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
