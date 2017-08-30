@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,8 @@ public class DetailMovieFragment extends Fragment {
     private RatingBar rbRate;
     private TextView tvOverview;
 
+    private ResultsItem resultsItem;
+
     public static DetailMovieFragment newInstance(String text) {
         DetailMovieFragment f = new DetailMovieFragment();
         Bundle b = new Bundle();
@@ -42,11 +45,15 @@ public class DetailMovieFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        String jsonString = getArguments().getString("json");
+        resultsItem = new ResultsItem().fromJson(jsonString);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_detail_movie, container, false);
-
-        String jsonString = getArguments().getString("json");
-        ResultsItem resultsItem = new ResultsItem().fromJson(jsonString);
 
         ivBackground = rootview.findViewById(R.id.ivBackground);
         ivPoster = rootview.findViewById(R.id.ivPoster);
@@ -57,7 +64,6 @@ public class DetailMovieFragment extends Fragment {
         tvOverview = rootview.findViewById(R.id.tvOverview);
 
         declarateContent(resultsItem);
-
 
         return rootview;
     }

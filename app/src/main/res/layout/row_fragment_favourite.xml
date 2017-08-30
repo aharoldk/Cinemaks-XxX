@@ -10,17 +10,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="125dp">
+        android:layout_height="175dp">
         <ImageView
             android:id="@+id/ivBackground"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="175dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"/>
         <LinearLayout
             android:id="@+id/llCardView"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="175dp"
             android:orientation="vertical"
             android:gravity="right">
 

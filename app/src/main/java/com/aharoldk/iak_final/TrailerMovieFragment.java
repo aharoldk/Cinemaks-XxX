@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -50,6 +51,7 @@ public class TrailerMovieFragment extends Fragment {
 
     private Boolean fullScreen = false;
 
+    private ResultsItem resultsItem;
 
     public static TrailerMovieFragment newInstance(String text) {
         TrailerMovieFragment f = new TrailerMovieFragment();
@@ -60,20 +62,23 @@ public class TrailerMovieFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        String jsonString = getArguments().getString("json");
+
+        resultsItem = new ResultsItem().fromJson(jsonString);
+
+        apiMovie(resultsItem);
+        apiReview(resultsItem);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_trailer_movie, container, false);
 
         expandableTextView = rootview.findViewById(R.id.expand_text_view);
         ivBackground = rootview.findViewById(R.id.ivBackground);
-
-        String jsonString = getArguments().getString("json");
-        ResultsItem resultsItem = new ResultsItem().fromJson(jsonString);
-
         blurbackground(resultsItem);
-
-        apiMovie(resultsItem);
-        apiReview(resultsItem);
-
         return rootview;
     }
 

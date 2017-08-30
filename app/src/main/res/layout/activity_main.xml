@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -23,22 +24,24 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_scrollFlags="scroll|enterAlways"
             android:title="@string/title_activity_main"
+            app:theme="@style/ToolBarStyle"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
-        style="@style/matchmatch"
-        android:layout_above="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="510dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <android.support.v4.widget.NestedScrollView
-            style="@style/matchmatch">
+            android:layout_width="match_parent"
+            android:layout_height="513dp">
+
             <FrameLayout
                 android:id="@+id/content"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
             </FrameLayout>
 
         </android.support.v4.widget.NestedScrollView>
@@ -51,10 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:menu="@menu/navigation"
-        android:layout_alignParentBottom="true"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"/>
-
+        app:itemTextColor="@drawable/selector" />
 
 </android.support.design.widget.CoordinatorLayout>

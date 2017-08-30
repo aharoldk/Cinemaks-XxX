@@ -20,23 +20,13 @@
         android:gravity="center_vertical"
         android:layout_marginTop="50dp">
 
-        <com.joooonho.SelectableRoundedImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/ppicture"
-            android:scaleType="centerCrop"
-            app:sriv_left_top_corner_radius="16dip"
-            app:sriv_right_top_corner_radius="0dip"
-            app:sriv_left_bottom_corner_radius="48dip"
-            app:sriv_right_bottom_corner_radius="16dip"
-            app:sriv_border_width="2dip"
-            app:sriv_border_color="#da3610"
-            app:sriv_oval="true"
-            android:clickable="false"
+
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="175dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"/>
+            android:src="@drawable/ppicture"
+            android:layout_marginBottom="10dp"/>
 
         <TextView
             style="@style/matchwrap"

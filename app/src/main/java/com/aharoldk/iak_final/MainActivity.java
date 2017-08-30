@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            finish();
+            finishAffinity();
         }
 
         this.doubleBackToExitPressedOnce = true;
