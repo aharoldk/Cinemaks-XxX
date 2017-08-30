@@ -16,7 +16,6 @@
                 android:id="@+id/ivPoster"
                 android:layout_width="185dp"
                 android:layout_height="275dp"
-                android:src="@drawable/poster"
                 android:layout_gravity="center_horizontal"/>
 
             <TextView

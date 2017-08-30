@@ -10,8 +10,7 @@
         <ImageView
             android:id="@+id/ivBackground"
             style="@style/matchmatch"
-            android:scaleType="fitXY"
-            android:src="@drawable/poster" />
+            android:scaleType="fitXY"/>
 
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/nestedScroll"
@@ -37,8 +36,7 @@
                             android:id="@+id/ivPoster"
                             android:layout_width="300dp"
                             android:layout_height="300dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/poster" />
+                            android:scaleType="fitCenter" />
 
                         <TextView
                             android:id="@+id/tvTitle"

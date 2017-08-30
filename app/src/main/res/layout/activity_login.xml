@@ -22,9 +22,11 @@
         android:layout_marginTop="-50dp">
 
         <ImageView
+            android:id="@+id/ivTranstion"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
+            android:transitionName="profile"
             android:src="@drawable/logo"
             android:clickable="false"
             android:layout_gravity="center_horizontal"/>

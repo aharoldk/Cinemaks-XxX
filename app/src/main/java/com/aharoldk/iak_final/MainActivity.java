@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
+    private int i = 0;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -106,7 +108,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;
 
-
+            case R.id.action_about:
+                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
 
             default:
                 break;
@@ -118,20 +121,23 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            getWindow().setExitTransition(new Explode());
             finish();
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        i++;
+        if(i == 1){
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        }
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 doubleBackToExitPressedOnce=false;
+                i = 0;
             }
         }, 3000);
-
     }
 
     @Override

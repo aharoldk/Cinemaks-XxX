@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.aharoldk.iak_final.AboutActivity">
+    style="@style/matchmatch"
+    tools:context="com.aharoldk.iak_final.AboutActivity"
+    android:background="@color/background">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        style="@style/matchwrap"
+        android:src="@drawable/login"
+        android:scaleType="centerCrop"
+        android:clickable="false"
+        android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        style="@style/matchwrap"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_marginTop="50dp">
+
+        <com.joooonho.SelectableRoundedImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ppicture"
+            android:scaleType="centerCrop"
+            app:sriv_left_top_corner_radius="16dip"
+            app:sriv_right_top_corner_radius="0dip"
+            app:sriv_left_bottom_corner_radius="48dip"
+            app:sriv_right_bottom_corner_radius="16dip"
+            app:sriv_border_width="2dip"
+            app:sriv_border_color="#da3610"
+            app:sriv_oval="true"
+            android:clickable="false"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            style="@style/matchwrap"
+            android:gravity="center_horizontal"
+            android:text="@string/alwandy_harold_kalangi"
+            android:textSize="20sp"
+            android:textColor="@color/textDetail"/>
+
+        <TextView
+            style="@style/matchwrap"
+            android:padding="25dp"
+            android:gravity="center_horizontal"
+            android:text="@string/bullshit"
+            android:textColor="@color/textDetail"/>
+    </LinearLayout>
+</RelativeLayout>

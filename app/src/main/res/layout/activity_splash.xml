@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aharoldk.iak_final.SplashActivity"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/ivTranstion"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:scaleType="centerCrop"
+        android:transitionName="profile"
+        android:src="@drawable/logo"
+        android:clickable="false"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

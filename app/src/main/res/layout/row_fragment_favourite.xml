@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     style="@style/matchwrap"
-    app:cardUseCompatPadding="true"
-    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="false"
+    app:cardCornerRadius="0dp"
     android:focusableInTouchMode="true">
 
     <RelativeLayout
@@ -16,9 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/image1"
-            />
+            android:scaleType="centerCrop"/>
         <LinearLayout
             android:id="@+id/llCardView"
             android:layout_width="match_parent"

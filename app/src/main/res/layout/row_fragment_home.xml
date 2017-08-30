@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     style="@style/matchwrap"
-    app:cardUseCompatPadding="true"
-    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="false"
+    app:cardCornerRadius="0dp"
     android:focusableInTouchMode="true">
 
     <ProgressBar
