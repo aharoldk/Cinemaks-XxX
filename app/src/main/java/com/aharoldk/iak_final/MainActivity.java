@@ -106,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;
 
+
+
             default:
                 break;
         }
