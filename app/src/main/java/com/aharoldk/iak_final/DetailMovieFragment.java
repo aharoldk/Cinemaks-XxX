@@ -84,7 +84,7 @@ public class DetailMovieFragment extends Fragment {
                 .into(ivBackground);
 
         Picasso.with(getContext())
-                .load("https://image.tmdb.org/t/p/w342"+resultsItem.getPosterPath())
+                .load("https://image.tmdb.org/t/p/w185"+resultsItem.getPosterPath())
                 .into(ivPoster);
 
         tvTitle.setText(""+resultsItem.getTitle());

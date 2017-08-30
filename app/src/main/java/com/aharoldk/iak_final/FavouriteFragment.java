@@ -90,7 +90,7 @@ public class FavouriteFragment extends Fragment {
                         TextView tvOverview = mView.findViewById(R.id.tvOverview);
 
                         Picasso.with(getContext())
-                                .load("https://image.tmdb.org/t/p/w342"+model.getPosterImage())
+                                .load("https://image.tmdb.org/t/p/w185"+model.getPosterImage())
                                 .into(ivPoster);
 
                         tvTitle.setText(""+model.getTitleDetail());

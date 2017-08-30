@@ -81,7 +81,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             linearLayout.setVisibility(View.GONE);
 
             Picasso.with(itemView.getContext())
-                    .load("https://image.tmdb.org/t/p/w342"+resultsItem.getPosterPath())
+                    .load("https://image.tmdb.org/t/p/w185"+resultsItem.getPosterPath())
                     .resize(185, 278)
                     .centerCrop()
                     .into(ivPoster, new Callback() {

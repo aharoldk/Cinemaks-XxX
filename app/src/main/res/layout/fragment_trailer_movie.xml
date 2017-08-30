@@ -18,7 +18,6 @@
 
         <RelativeLayout
             style="@style/matchwrap"
-            android:layout_marginBottom="15dp"
             android:layout_above="@+id/adView"
             android:layout_below="@+id/youtube_fragment">
 
@@ -28,7 +27,7 @@
                 android:scaleType="centerCrop"/>
 
                 <LinearLayout
-                    style="@style/matchwrap"
+                    style="@style/matchmatch"
                     android:orientation="vertical">
 
                     <View
@@ -82,16 +81,7 @@
                         android:background="#c0c0c0" />
                 </LinearLayout>
 
-
         </RelativeLayout>
-
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            style="@style/matchwrap"
-            ads:adSize="BANNER"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="15dp"
-            ads:adUnitId="@string/banner_home_footer"/>
 
     </RelativeLayout>
 

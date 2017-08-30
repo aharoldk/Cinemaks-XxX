@@ -73,7 +73,6 @@ public class TrailerMovieFragment extends Fragment {
 
         apiMovie(resultsItem);
         apiReview(resultsItem);
-        adMethod(rootview);
 
         return rootview;
     }
@@ -98,13 +97,6 @@ public class TrailerMovieFragment extends Fragment {
                 .sampling(1)
                 .from(mIcon1)
                 .into(ivBackground);
-    }
-
-    private void adMethod(View rootview) {
-        AdView mAdView = rootview.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
-        mAdView.loadAd(adRequest);
     }
 
     private void apiReview(ResultsItem resultsItem) {

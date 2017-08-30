@@ -31,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 Bundle options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, ivTranstion, "profile").toBundle();
                 startActivity(intent, options);
-
+                finish();
             }
         }, splashInterval);
     }
